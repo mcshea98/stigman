@@ -435,7 +435,7 @@
   "webAuthnPolicyPasswordlessCreateTimeout" : 0,
   "webAuthnPolicyPasswordlessAvoidSameAuthenticatorRegister" : false,
   "webAuthnPolicyPasswordlessAcceptableAaguids" : [ ],
-  "users" : [{
+  "users" : [ {
     "id" : "93bdf280-3e2c-4025-8ebc-efdbfbbddead",
     "createdTimestamp" : 1602029221544,
     "username" : "service-account-stigman-watcher",
@@ -452,7 +452,7 @@
     },
     "notBefore" : 0,
     "groups" : [ ]
-  }],
+  } ],
   "scopeMappings" : [ {
     "clientScope" : "stig-manager:collection",
     "roles" : [ "user" ]
@@ -529,7 +529,7 @@
     "enabled" : true,
     "alwaysDisplayInConsole" : false,
     "clientAuthenticatorType" : "client-secret",
-    "secret" :  "********",
+    "secret" : "********",
     "redirectUris" : [ "/realms/stigman/account/*" ],
     "webOrigins" : [ ],
     "notBefore" : 0,
@@ -566,7 +566,7 @@
     "enabled" : true,
     "alwaysDisplayInConsole" : false,
     "clientAuthenticatorType" : "client-secret",
-    "secret" :  "********",
+    "secret" : "********",
     "redirectUris" : [ ],
     "webOrigins" : [ ],
     "notBefore" : 0,
@@ -593,7 +593,7 @@
     "enabled" : true,
     "alwaysDisplayInConsole" : false,
     "clientAuthenticatorType" : "client-secret",
-    "secret" :  "********",
+    "secret" : "********",
     "redirectUris" : [ ],
     "webOrigins" : [ ],
     "notBefore" : 0,
@@ -620,7 +620,7 @@
     "enabled" : true,
     "alwaysDisplayInConsole" : false,
     "clientAuthenticatorType" : "client-secret",
-    "secret" :  "********",
+    "secret" : "********",
     "redirectUris" : [ "*" ],
     "webOrigins" : [ ],
     "notBefore" : 0,
@@ -663,7 +663,7 @@
     "enabled" : true,
     "alwaysDisplayInConsole" : false,
     "clientAuthenticatorType" : "client-secret",
-    "secret" :  "********",
+    "secret" : "********",
     "redirectUris" : [ "/admin/stigman/console/*" ],
     "webOrigins" : [ "+" ],
     "notBefore" : 0,
@@ -753,7 +753,7 @@
     "enabled" : true,
     "alwaysDisplayInConsole" : false,
     "clientAuthenticatorType" : "client-secret",
-    "secret" :  "********",
+    "secret" : "********",
     "redirectUris" : [ ],
     "webOrigins" : [ ],
     "notBefore" : 0,
@@ -1334,7 +1334,7 @@
     "strictTransportSecurity" : "max-age=31536000; includeSubDomains"
   },
   "smtpServer" : { },
-  "loginTheme" : "keycloak",
+  "loginTheme" : "stigman",
   "eventsEnabled" : false,
   "eventsListeners" : [ "jboss-logging" ],
   "enabledEventTypes" : [ "SEND_RESET_PASSWORD", "UPDATE_CONSENT_ERROR", "GRANT_CONSENT", "REMOVE_TOTP", "REVOKE_GRANT", "UPDATE_TOTP", "LOGIN_ERROR", "CLIENT_LOGIN", "RESET_PASSWORD_ERROR", "IMPERSONATE_ERROR", "CODE_TO_TOKEN_ERROR", "CUSTOM_REQUIRED_ACTION", "RESTART_AUTHENTICATION", "IMPERSONATE", "UPDATE_PROFILE_ERROR", "LOGIN", "UPDATE_PASSWORD_ERROR", "CLIENT_INITIATED_ACCOUNT_LINKING", "TOKEN_EXCHANGE", "LOGOUT", "REGISTER", "CLIENT_REGISTER", "IDENTITY_PROVIDER_LINK_ACCOUNT", "UPDATE_PASSWORD", "CLIENT_DELETE", "FEDERATED_IDENTITY_LINK_ERROR", "IDENTITY_PROVIDER_FIRST_LOGIN", "CLIENT_DELETE_ERROR", "VERIFY_EMAIL", "CLIENT_LOGIN_ERROR", "RESTART_AUTHENTICATION_ERROR", "EXECUTE_ACTIONS", "REMOVE_FEDERATED_IDENTITY_ERROR", "TOKEN_EXCHANGE_ERROR", "PERMISSION_TOKEN", "SEND_IDENTITY_PROVIDER_LINK_ERROR", "EXECUTE_ACTION_TOKEN_ERROR", "SEND_VERIFY_EMAIL", "EXECUTE_ACTIONS_ERROR", "REMOVE_FEDERATED_IDENTITY", "IDENTITY_PROVIDER_POST_LOGIN", "IDENTITY_PROVIDER_LINK_ACCOUNT_ERROR", "UPDATE_EMAIL", "REGISTER_ERROR", "REVOKE_GRANT_ERROR", "EXECUTE_ACTION_TOKEN", "LOGOUT_ERROR", "UPDATE_EMAIL_ERROR", "CLIENT_UPDATE_ERROR", "UPDATE_PROFILE", "CLIENT_REGISTER_ERROR", "FEDERATED_IDENTITY_LINK", "SEND_IDENTITY_PROVIDER_LINK", "SEND_VERIFY_EMAIL_ERROR", "RESET_PASSWORD", "CLIENT_INITIATED_ACCOUNT_LINKING_ERROR", "UPDATE_CONSENT", "REMOVE_TOTP_ERROR", "VERIFY_EMAIL_ERROR", "SEND_RESET_PASSWORD_ERROR", "CLIENT_UPDATE", "CUSTOM_REQUIRED_ACTION_ERROR", "IDENTITY_PROVIDER_POST_LOGIN_ERROR", "UPDATE_TOTP_ERROR", "CODE_TO_TOKEN", "GRANT_CONSENT_ERROR", "IDENTITY_PROVIDER_FIRST_LOGIN_ERROR" ],
@@ -1443,52 +1443,6 @@
   "internationalizationEnabled" : false,
   "supportedLocales" : [ "" ],
   "authenticationFlows" : [ {
-    "id" : "dd793088-90f5-42bf-ba37-6a7e67115692",
-    "alias" : "Browser-required-role forms",
-    "description" : "Username, password, otp and other auth forms.",
-    "providerId" : "basic-flow",
-    "topLevel" : false,
-    "builtIn" : false,
-    "authenticationExecutions" : [ {
-      "authenticator" : "auth-username-password-form",
-      "authenticatorFlow" : false,
-      "requirement" : "REQUIRED",
-      "priority" : 10,
-      "userSetupAllowed" : false,
-      "autheticatorFlow" : false
-    }, {
-      "authenticatorFlow" : true,
-      "requirement" : "CONDITIONAL",
-      "priority" : 20,
-      "flowAlias" : "Browser-required-role forms - Conditional",
-      "userSetupAllowed" : false,
-      "autheticatorFlow" : true
-    } ]
-  }, {
-    "id" : "c0229c94-c996-43a9-af7c-f9e31330ca30",
-    "alias" : "Browser-required-role forms - Conditional",
-    "description" : "Flow to determine if the user has role 'user'",
-    "providerId" : "basic-flow",
-    "topLevel" : false,
-    "builtIn" : false,
-    "authenticationExecutions" : [ {
-      "authenticatorConfig" : "missing-user-role",
-      "authenticator" : "conditional-user-role",
-      "authenticatorFlow" : false,
-      "requirement" : "REQUIRED",
-      "priority" : 0,
-      "userSetupAllowed" : false,
-      "autheticatorFlow" : false
-    }, {
-      "authenticatorConfig" : "denied-for-missing-role",
-      "authenticator" : "deny-access-authenticator",
-      "authenticatorFlow" : false,
-      "requirement" : "REQUIRED",
-      "priority" : 1,
-      "userSetupAllowed" : false,
-      "autheticatorFlow" : false
-    } ]
-  }, {
     "id" : "a94bc51a-70b2-4b98-9141-7b2c3eb0883e",
     "alias" : "Handle Existing Account",
     "description" : "Handle what to do if there is existing account with same email/username like authenticated identity provider",
@@ -1591,21 +1545,20 @@
       "userSetupAllowed" : false,
       "autheticatorFlow" : false
     }, {
-      "authenticatorConfig" : "create-user",
-      "authenticator" : "auth-x509-client-create-form",
-      "authenticatorFlow" : false,
-      "requirement" : "ALTERNATIVE",
-      "priority" : 30,
-      "userSetupAllowed" : false,
-      "autheticatorFlow" : false
-    }, {
       "authenticatorConfig" : "x509-form-config",
       "authenticator" : "auth-x509-client-username-form",
       "authenticatorFlow" : false,
-      "requirement" : "DISABLED",
-      "priority" : 31,
+      "requirement" : "ALTERNATIVE",
+      "priority" : 20,
       "userSetupAllowed" : false,
       "autheticatorFlow" : false
+    }, {
+      "authenticatorFlow" : true,
+      "requirement" : "ALTERNATIVE",
+      "priority" : 30,
+      "flowAlias" : "X.509 forms",
+      "userSetupAllowed" : false,
+      "autheticatorFlow" : true
     } ]
   }, {
     "id" : "5e1ed2bc-496f-431d-b984-80c8f2205f7f",
@@ -1640,42 +1593,6 @@
       "requirement" : "ALTERNATIVE",
       "priority" : 30,
       "flowAlias" : "forms",
-      "userSetupAllowed" : false,
-      "autheticatorFlow" : true
-    } ]
-  }, {
-    "id" : "5cf9cfd5-c4c3-4e0b-8ea8-e2e8edad4c14",
-    "alias" : "browser-required-role",
-    "description" : "browser based authentication with role check",
-    "providerId" : "basic-flow",
-    "topLevel" : true,
-    "builtIn" : false,
-    "authenticationExecutions" : [ {
-      "authenticator" : "auth-cookie",
-      "authenticatorFlow" : false,
-      "requirement" : "ALTERNATIVE",
-      "priority" : 10,
-      "userSetupAllowed" : false,
-      "autheticatorFlow" : false
-    }, {
-      "authenticator" : "auth-spnego",
-      "authenticatorFlow" : false,
-      "requirement" : "DISABLED",
-      "priority" : 20,
-      "userSetupAllowed" : false,
-      "autheticatorFlow" : false
-    }, {
-      "authenticator" : "identity-provider-redirector",
-      "authenticatorFlow" : false,
-      "requirement" : "ALTERNATIVE",
-      "priority" : 25,
-      "userSetupAllowed" : false,
-      "autheticatorFlow" : false
-    }, {
-      "authenticatorFlow" : true,
-      "requirement" : "ALTERNATIVE",
-      "priority" : 30,
-      "flowAlias" : "Browser-required-role forms",
       "userSetupAllowed" : false,
       "autheticatorFlow" : true
     } ]
@@ -2032,39 +1949,54 @@
       "userSetupAllowed" : false,
       "autheticatorFlow" : false
     } ]
+  }, {
+    "alias" : "X.509 forms",
+    "description" : "Username, password, otp and other auth forms.",
+    "providerId" : "basic-flow",
+    "topLevel" : false,
+    "builtIn" : false,
+    "authenticationExecutions" : [ {
+      "authenticator" : "auth-username-password-form",
+      "authenticatorFlow" : false,
+      "requirement" : "REQUIRED",
+      "priority" : 10,
+      "userSetupAllowed" : false,
+      "autheticatorFlow" : false
+    }, {
+      "authenticatorFlow" : true,
+      "requirement" : "CONDITIONAL",
+      "priority" : 20,
+      "flowAlias" : "X.509 forms - auth-otp-form - Conditional",
+      "userSetupAllowed" : false,
+      "autheticatorFlow" : true
+    } ]
+  }, {
+    "alias" : "X.509 forms - auth-otp-form - Conditional",
+    "description" : "Flow to determine if the auth-otp-form authenticator should be used or not.",
+    "providerId" : "basic-flow",
+    "topLevel" : false,
+    "builtIn" : false,
+    "authenticationExecutions" : [ {
+      "authenticator" : "conditional-user-configured",
+      "authenticatorFlow" : false,
+      "requirement" : "REQUIRED",
+      "priority" : 10,
+      "userSetupAllowed" : false,
+      "autheticatorFlow" : false
+    }, {
+      "authenticator" : "auth-otp-form",
+      "authenticatorFlow" : false,
+      "requirement" : "REQUIRED",
+      "priority" : 20,
+      "userSetupAllowed" : false,
+      "autheticatorFlow" : false
+    } ]
   } ],
   "authenticatorConfig" : [ {
-    "id" : "42f48ba4-09c5-4f78-b3fe-a894551a6bb2",
-    "alias" : "create-user",
-    "config" : {
-      "x509-cert-auth.canonical-dn-enabled" : "false",
-      "x509-cert-auth.mapper-selection.user-attribute-name" : "usercertificate",
-      "x509-cert-auth.serialnumber-hex-enabled" : "false",
-      "x509-cert-auth.regular-expression" : "(.*?)(?:$)",
-      "x509-cert-auth.mapper-selection" : "Username or Email",
-      "x509-cert-auth.crl-relative-path" : "crl.pem",
-      "x509-cert-auth.crldp-checking-enabled" : "false",
-      "x509-cert-auth.mapping-source-selection" : "Subject's Common Name",
-      "x509-cert-auth.timestamp-validation-enabled" : "true"
-    }
-  }, {
     "id" : "7aee0472-eb00-4d16-88c4-a7a9348cf0df",
     "alias" : "create unique user config",
     "config" : {
       "require.password.update.after.registration" : "false"
-    }
-  }, {
-    "id" : "41b136d3-aaad-4154-93b3-433de9307ce9",
-    "alias" : "denied-for-missing-role",
-    "config" : {
-      "denyErrorMessage" : "denied-for-missing-role"
-    }
-  }, {
-    "id" : "4165e4cb-16a3-428d-9b5c-dba115063bc0",
-    "alias" : "missing-user-role",
-    "config" : {
-      "negate" : "true",
-      "condUserRole" : "user"
     }
   }, {
     "id" : "138eea9e-ce6c-4ea0-840c-f8dcb44621e2",
@@ -2084,7 +2016,8 @@
       "x509-cert-auth.crl-relative-path" : "crl.pem",
       "x509-cert-auth.crldp-checking-enabled" : "false",
       "x509-cert-auth.mapping-source-selection" : "Subject's Common Name",
-      "x509-cert-auth.timestamp-validation-enabled" : "true"
+      "x509-cert-auth.timestamp-validation-enabled" : "true",
+      "x509-cert-auth.confirmation-page-disallowed" : "true"
     }
   } ],
   "requiredActions" : [ {
