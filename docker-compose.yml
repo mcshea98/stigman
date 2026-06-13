@@ -19,7 +19,7 @@ services:
       - ./certs/dod/DoD_Root_CAs.pem:/etc/nginx/dod-certs.pem
       - ./nginx/index.html:/usr/share/nginx/html/index.html
     ports:
-      - "443:443"
+      - "844:8448"
   keycloak:
     image: quay.io/keycloak/keycloak:26.6.3
     # alternative image from Ironbank
